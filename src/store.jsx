@@ -1,59 +1,65 @@
 export const initialStore = () => {
   return {
     message: null,
+
     people:[],
     vehicles:[],
     planets:[],
     favorites:[],
-    loading: false,
+    loading: false
   }
 }
-// Cambie el store por state en los parametros
-export default function storeReducer(state, action = {}) {
+
+export default function storeReducer(store, action = {}) {
   switch (action.type) {
+   
     case "START_LOADING":
     return{
-      ...state,
+      ...store,
       loading: true
-    }
+
+    } 
     case "STOP_LOADING":
       return{
-        ...state,
+        ...store,
         loading: false
       }
       case "SET_PEOPLE":
         return{
-          ...state,
+          ...store,
           people:action.payload
         }
+
         case "SET_VEHICLES":
         return{
-          ...state,
+          ...store,
           vehicles:action.payload
         }
+
         case "SET_PLANETS":
         return{
-          ...state,
+          ...store,
           planets:action.payload
         }
+
+
         case "ADD_TO_FAVORITES":
         return{
-          ...state,
-          favorites: [...state.favorites, action.payload]
+          ...store,
+          favorites: [...store.favorites, action.payload] 
         }
         case "REMOVE_FROM_FAVORITES":
           return{
-            ...state,
-            favorites: state.favorites.filter(
+            ...store,
+            favorites: store.favorites.filter(
               fav => !(fav.uid === action.payload.uid && fav.type === action.payload.type)
             )
           }
-        case "SET_FAVORITES":
-          return {
-          ...state,
-          favorites: action.payload
-        
-        };
+
+
+
+
+
 
     default:
       throw Error('Unknown action.');

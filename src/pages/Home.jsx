@@ -1,6 +1,6 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import { StarWarsHome } from "./statWarsHome.jsx";
+import { StarWarsHome } from "./StarWarsHome.jsx";
 
 export const Home = () => {
 
@@ -12,3 +12,4 @@ export const Home = () => {
 		</div>
 	);
 }; 
+
